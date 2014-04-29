@@ -1,0 +1,48 @@
+<head>
+<title>几何图库绘制 JSXGraph - OPEN 开发经验库</title>
+<meta content="text/html; charset=utf-8" http-equiv=content-type>
+<meta name=robots content=index,follow>
+<meta name=keywords content="JavaScript,图形/图像处理">
+<meta name=description content="JSXGraph 是一个支持各种浏览器的交互式几何图库绘制。JSXGraph 使用 SVG 和 VML.
+
+">
+<link rel="stylesheet" type="text/css" href="./css/jsxgraph.css" />  
+ <script type="text/javascript" src="./js/jsxgraphcore.js"></script>  
+<style type="text/css">
+		.divright1{
+		   position: relative;
+		   margin-left:504;
+		   margin-top:-502;
+		}
+		
+		.divright2{
+		   position: relative;
+		   margin-left:608;
+		   margin-top:-504;
+		}
+</style>  
+</head>
+
+<div id="box" class="jxgbox" style="width:500px; height:500px;"></div>  
+<div id="hint1" class="jxgbox divright1" style="width:100px; height:500px;">
+两条直线相交，当夹角为直角的时候，两条直线相互垂直.请拖拽A、B、C进行演示
+</div> 
+<div id="hint1" class="jxgbox divright2" style="width:500px; height:500px; overflow:auto">
+<img src="./img/1-1.png">
+</div> 
+ 
+<script type="text/javascript">  
+var board = JXG.JSXGraph.initBoard('box', {axis:false, boundingbox: [-5, 5, 5, -5]});
+// Create base elements: 2 points and 1 line
+var p3 = board.create('point', [0, 2.0]);
+var p4 = board.create('point', [3, 0]);
+var theLine = board.create('line',[p3,p4]);
+var thePoint = board.create('point',[1,3],{name:'C'});
+var linep = board.create('perpendicular',[theLine,thePoint],{dash:1});
+
+var pp1 = board.create('perpendicularpoint', [thePoint, theLine]);
+
+//angle
+ a1 = board.create('angle', [p4, pp1, thePoint]);
+
+</script>

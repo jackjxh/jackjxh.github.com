@@ -1,0 +1,49 @@
+<head>
+<title>几何图库绘制 JSXGraph - OPEN 开发经验库</title>
+<meta content="text/html; charset=utf-8" http-equiv=content-type>
+<meta name=robots content=index,follow>
+<meta name=keywords content="JavaScript,图形/图像处理">
+<meta name=description content="JSXGraph 是一个支持各种浏览器的交互式几何图库绘制。JSXGraph 使用 SVG 和 VML.
+
+">
+<link rel="stylesheet" type="text/css" href="./css/jsxgraph.css" />  
+ <script type="text/javascript" src="./js/jsxgraphcore.js"></script>  
+ <style type="text/css">
+		.divright{
+		   position: relative;
+		   margin-left:504;
+		   margin-top:-502;
+		}
+		
+		.divright1{
+		   position: relative;
+		   margin-left:608;
+		   margin-top:-502;
+		}
+</style> 
+
+</head>
+
+<div id="box" class="jxgbox" style="width:500px; height:500px;"></div> 
+<div id="box1" class="jxgbox divright" style="width:100px; height:500px;">
+	直线AB经过点A和点B，与其相平行的直线经过点C。请任意拖动点A、B、C的位置，观察两条直线的位置变化
+</div> 
+<div id="box1" class="jxgbox divright1" style="width:500px; height:500px; overflow:auto">
+	<img src="./img/2-1.png">
+</div>  
+<script type="text/javascript">  
+ var board = JXG.JSXGraph.initBoard('box', {axis:true, boundingbox: [-8, 6, 8, -2]});
+// Create a parallel
+var p1 = board.create('point', [0.0, 2.0]);
+var p2 = board.create('point', [2.0, 1.0]);
+var l1 = board.create('line', [p1, p2]);
+
+var p3 = board.create('point', [3.0, 3.0]);
+var pl1 = board.create('parallel', [l1, p3]);
+var graph = board.create('text',
+                       [function(){return  p1.X()+0.5;}, function(){return  p1.Y()+0.3;},
+                        "直线AB"
+                       ]
+                    );
+
+</script>
